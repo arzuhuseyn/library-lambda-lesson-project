@@ -1,0 +1,14 @@
+[
+    {
+        "name": "Lord of the Rings",
+        "category": {
+            "name": "Fantasy"
+        },
+        "author": {
+            "name": "J.R. Tolkien",
+            "surname": "Tolkien",
+            "nationality": "english"
+        },
+        "publication": "Penguen"
+    }
+]
