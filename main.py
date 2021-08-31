@@ -35,3 +35,31 @@ if case == "1":
         print("Congrats! Book saved to database")
     else:
         print("Sorry, something went wrong")
+
+if case == "2":
+    book_name = input("Please enter the book name: ")
+    source = load_from_db()
+    book = lib_repo.get_book(source=source, name=book_name)
+    if book:
+        new_name = input("Please enter the new book name: ")
+        new_publication = input("Please enter the new book publication: ")
+        new_category = input("Please enter the new book category: ")
+        new_author = input("Please enter the new book author name: ")
+        new_author_surname = input("Please enter the new book author surname: ")
+
+        if new_name:
+            book.name = new_name
+        if new_publication:
+            book.publication = new_publication
+        if new_category:
+            book.category.name = new_category
+        if new_author:
+            book.author.name = new_author
+        if new_author_surname:
+            book.author.surname = new_author_surname
+        
+        saved = save_to_db(data=book.serialize(), case=2)
+        if saved:
+            print("Congrats! Book updated")
+    else:
+        print("Book not found")

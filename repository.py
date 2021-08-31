@@ -15,5 +15,16 @@ class LibraryRepository:
         instance.category = category
         return instance
 
+    # From pytest lesson
+    def get_book(self, source, name):
+        book = list(filter(lambda x: x.get('name') == name, source))
+        if book:
+            author = self.create_author(**book[0]['author'])
+            category = self.create_category(**book[0]['category'])
+            return self.create_book(book[0]['name'], author, category, book[0]['publication'])
+        return None
 
+    
+
+ 
 lib_repo = LibraryRepository()
